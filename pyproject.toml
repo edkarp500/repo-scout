@@ -1,0 +1,34 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "repo-scout"
+version = "0.1.0"
+description = "A small CLI that checks whether a repository has the basics for healthy open-source maintenance."
+readme = "README.md"
+requires-python = ">=3.9"
+license = "MIT"
+authors = [
+  { name = "edkarp500" }
+]
+keywords = ["open-source", "github", "maintenance", "cli", "repository"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Environment :: Console",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "Topic :: Software Development :: Quality Assurance"
+]
+
+[project.scripts]
+repo-scout = "repo_scout.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/repo_scout"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
